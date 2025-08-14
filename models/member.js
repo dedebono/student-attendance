@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const memberSchema = new mongoose.Schema({
+     memberCardNumber: { type: String, required: true, unique: true },
   fullName: { type: String, 
     required: true }, //1
   gender: { type: String, 
@@ -8,27 +9,14 @@ const memberSchema = new mongoose.Schema({
   placeOfBirth: { type: String }, //3
   dateOfBirth: { type: Date, required: true }, //4
   familyId: { type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Family', 
-    required: true }, //5
+    ref: 'Family'}, //5
   phoneNumber: { type: String }, //6
   address: { type: String }, //7
   bloodType: { type: String }, //8
   hobby: { type: String }, //9
-  maritalStatus: { type: String }, //10
-  congregationStatus: { type: String }, //11
-  familyStatus: { type: String }, //12
   eduHistory: { type: String }, //13
-  jobNow: { type: String }, //14
-  baptismStatus: { type: String }, //15
-  bpjsStatus: { type: String }, //16
-  yakumkrisStatus: { type: String }, //17
   isHead: { type: Boolean, default: false }, //18
   email: { type: String },
-  role: {
-    type: String,
-    enum: ['member', 'leader'], 
-    default: 'member',
-  },
   groups: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Group',
