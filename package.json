@@ -1,5 +1,5 @@
 {
-    "name": "church-backend",
+    "name": "attendance-backend",
     "version": "0.0.1",
     "main": "app.js",
     "type": "module",

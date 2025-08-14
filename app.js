@@ -3,6 +3,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import groupRoutes from './routes/groupRoutes.js'; 
+import authRoutes from './routes/authRoutes.js';
+import memberRoutes from './routes/memberRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -20,7 +22,6 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
 mongoose.set('strictQuery', true);
 
 mongoose.connect(process.env.MONGO_URI)
@@ -33,7 +34,8 @@ app.listen(PORT, () => {
 });
 
 app.use('/api/groups', groupRoutes);
-
+app.use('/api/auth', authRoutes);
+app.use('/api/members', memberRoutes);
 app.use((req, _res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
   console.log('Body:', req.body);
