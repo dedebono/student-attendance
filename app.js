@@ -18,7 +18,7 @@ const PORT = process.env.PORT;
 // CORS + JSON
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:3001'], // frontend URL
+    origin: ['http://localhost:3000'], // frontend URL
     methods: ['GET', 'POST'],
   }
 });
